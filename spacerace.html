@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>About Us</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+      background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
+      overflow: hidden;
+      position: relative;
+    }
+    .stars {
+      position: fixed;
+      width: 100vw;
+      height: 100vh;
+      top: 0;
+      left: 0;
+      z-index: 0;
+      pointer-events: none;
+    }
+    .star {
+      position: absolute;
+      background: white;
+      border-radius: 50%;
+      opacity: 0.8;
+      animation: twinkle 2s infinite alternate;
+    }
+    @keyframes twinkle {
+      from { opacity: 0.3; }
+      to { opacity: 1; }
+    }
+    /* Floating heading animation */
+    .floating-heading {
+      color: #fff;
+      text-align: center;
+      font-size: 3em;
+      margin-top: 40px;
+      animation: float 3s ease-in-out infinite;
+      letter-spacing: 2px;
+      text-shadow: 0 0 10px #fff, 0 0 20px #1b2735;
+    }
+    @keyframes float {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-30px);
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1 class="floating-heading">About Us!</h1>
+  <div class="stars"></div>
+  <script>
+    const starCount = 100;
+    const stars = document.querySelector('.stars');
+    for (let i = 0; i < starCount; i++) {
+      const star = document.createElement('div');
+      star.className = 'star';
+      const size = Math.random() * 2 + 1;
+      star.style.width = ${size}px;
+      star.style.height = ${size}px;
+      star.style.top = ${Math.random() * 100}vh;
+      star.style.left = ${Math.random() * 100}vw;
+      star.style.animationDuration = ${1.5 + Math.random()}s;
+      stars.appendChild(star);
+    }
+  </script>
+</body>
+</html>
